@@ -8,7 +8,7 @@ This journal hopes to aid in the process of being successful parents and, at the
 
 ## Basic Operations
 This will be a blog-like journal that accepts entries. Each entry will be tagged with any number of topical tags, eg. MOBILITY, VERBAL, DEXTERITY. The user will be prompted to reflect on certain topics based on lack of journal entries addressing them. The user will be able to adjust the frequency of topical prompts.
-The user will also be able to view the development of tags based on the history of journal entries.
+The user will also be able to view journal entries based on entry date and based on tag history of journal entries.
 
 ## Advanced Features
 -Able to use document classification techniques to automatically tag journal entries with a topical tag.
