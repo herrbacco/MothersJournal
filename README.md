@@ -12,7 +12,7 @@ The user will also be able to view journal entries based on entry date and based
 
 ## Advanced Features
 -Able to use document classification techniques to automatically tag journal entries with a topical tag.
--Based on the frequency of topical tagging done, adjust topical quota functions to match natural 'average' progression.
+-Based on the frequency of topical tagging done, adjust topical quota functions to match natural progression of topical journaling.
 
 ## Grand Ideas
 Automatic, asks you questions on the fly, when you're known to have downtime/not doing anything anyway. Notices topical developmental steps as they happen, doesn't miss any of them, prompts user for a comment. Records everything. Categorizes everything. Makes qualitative judgements on photo/video/audio data. Makes a highlight reel, can be custom delivered any length, any sentiment, any developmental achievement.

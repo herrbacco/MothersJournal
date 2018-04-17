@@ -1,6 +1,9 @@
 # TO DO
 
 ## Version .9: command-line interface:
+
+### __Use MVC pattern to make modifications/upgrades easy__
+
 - create root menu prompt
   - display full usage (list all commands)
   - display root menu prompt (note to '--help' command which displays full usage)
@@ -41,13 +44,17 @@
   - prompt for id of entry to remove tags
   - prompt for tags to remove
   - delete tags for entry
-  
 
 - view dates of all entries
   - print dates of entries
--   
- - view list of entries by tag
- -
+
+- view all entries by date
+  - print all entries
+
+- view list of entries by tag
+  - prompt for requested tag
+  - print all entries with tag
+
 
 ## List of To-Do's
 Work out logic between journal entries, tags, and tag-scheduler.
