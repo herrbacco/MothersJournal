@@ -59,6 +59,12 @@
 ## List of To-Do's
 Work out logic between journal entries, tags, and tag-scheduler.
 
+
+- (login/create new user profile)
+- (verify email to signup)
+- (use salt and hash to keep password secure)
+- (forgot password? email to reset)
+
 1. Create blog-like interface
   - Spell checking
   - select, copy, paste
