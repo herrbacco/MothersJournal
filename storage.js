@@ -71,7 +71,7 @@ storage = {
       sql = '';
       sql += 'CREATE TABLE IF NOT EXISTS Journal ( ';
       sql += 'JournalID  INTEGER PRIMARY KEY NOT NULL, ';
-      sql += 'UserID INTEGER NOT NULL, ';
+      sql += 'UserID INTEGER NOT NULL REFERENCES User (UserID), ';
       sql += 'ChildName TEXT, ';
       sql += 'ChildBDay DATE )';
       db.run(sql);
@@ -79,7 +79,7 @@ storage = {
       sql = '';
       sql += 'CREATE TABLE IF NOT EXISTS Entry ( ';
       sql += 'EntryID INTEGER PRIMARY KEY NOT NULL, ';
-      sql += 'JournalID INTEGER NOT NULL, ';
+      sql += 'JournalID INTEGER NOT NULL REFERENCES Journal (JournalID), ';
       sql += 'DateLastSave DATETIME, ';
       sql += 'DateExplicit DATE, ';
       sql += 'Text TEXT )';
@@ -88,7 +88,7 @@ storage = {
       sql = '';
       sql += 'CREATE TABLE IF NOT EXISTS TagSchedule ( ';
       sql += 'TagID INTEGER PRIMARY KEY NOT NULL, ';
-      sql += 'JournalID INTEGER NOT NULL, ';
+      sql += 'JournalID INTEGER NOT NULL REFERENCES Journal (JournalID), ';
       sql += 'FrequencyDesired TEXT, ';
       sql += 'FrequencyAchieved TEXT )';
       db.run(sql);
@@ -96,22 +96,22 @@ storage = {
       sql = '';
       sql += 'CREATE TABLE IF NOT EXISTS EntryTag ( ';
       sql += 'EntryTagID INTEGER PRIMARY KEY NOT NULL, ';
-      sql += 'EntryID INTEGER NOT NULL, ';
-      sql += 'TagID INTEGER NOT NULL, ';
+      sql += 'EntryID INTEGER NOT NULL REFERENCES Entry (EntryID), ';
+      sql += 'TagID INTEGER NOT NULL REFERENCES Tag (TagID), ';
       sql += 'ManuallyAssigned BOOLEAN DEFAULT 0 )';
       db.run(sql);
 
     });
 
-    db.all('PRAGMA table_info(user)', function(err, row) {
+/*    db.all('PRAGMA table_info(user)', function(err, row) {
         for(let x = 0; x < row.length; x++){
-//          console.log('x: '+ x);
-//          console.log('row[x]: ' + row[x]);
+          console.log('x: '+ x);
+          console.log('row[x]: ' + row[x]);
           for (let y in row[x]){
             console.log(y + ' ' + row[x][y]);
           }
         }
-    });
+    }); */
 
   },
 
@@ -140,6 +140,20 @@ storage = {
       }
       console.log('Closed '+ dbfile +' with no issues.');
     });
+  },
+
+  closeDB : function () {
+    db.close(function (err) {
+      if (err){
+        return console.error(err.message);
+      }
+      console.log('Closed '+ dbfile +' with no issues.');
+    });
+  },
+
+  saveEntry : function (entry) {
+    console.log('code to save entry: '+ entry);
+    console.log('--TO DO--');
   }
 }
 

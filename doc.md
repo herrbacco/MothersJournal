@@ -14,26 +14,26 @@ PK  UserID - INTEGER PRIMARY KEY NOT NULL
 
 #### Journal
 PK  JournalID - INTEGER PRIMARY KEY NOT NULL
-FK  UserID - INTEGER NOT NULL
+FK  UserID - INTEGER NOT NULL REFERENCES User (UserID)
     ChildName - TEXT
     ChildBDay - DATE
 /   ChildAgeInDays - INTEGER
 
 #### Entry
 PK  EntryID - INTEGER PRIMARY KEY NOT NULL
-FK  JournalID - INTEGER NOT NULL
+FK  JournalID - INTEGER NOT NULL REFERENCES Journal (JournalID)
     DateLastSave - DATETIME
     DateExplicit - DATE
     Text - TEXT
 
 #### TagSchedule
 PK  TagID - INTEGER PRIMARY KEY NOT NULL
-FK  JournalID - INTEGER NOT NULL
+FK  JournalID - INTEGER NOT NULL REFERENCES Journal (JournalID)
     FrequencyDesired - ?Text?Int?function?
 /   FrequencyAchieved - ?Text?Int?function?
 
 #### EntryTag
 PK  EntryTagID - INTEGER PRIMARY KEY NOT NULL
-FK  EntryID - INTEGER NOT NULL
-FK  TagID - INTEGER NOT NULL
-    ManuallyAssigned - BOOLEAN
+FK  EntryID - INTEGER NOT NULL REFERENCES Entry (EntryID)
+FK  TagID - INTEGER NOT NULL REFERENCES Tag (TagID)
+    ManuallyAssigned - BOOLEAN DEFAULT 0
